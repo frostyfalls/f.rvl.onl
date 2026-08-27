@@ -1,0 +1,10 @@
+image: alpine:3.23
+
+create-pages:
+  pages:
+    publish: public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  script:
+    - apk add --no-cache lowdown
+    - ./build.sh

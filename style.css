@@ -1,0 +1,31 @@
+body {
+  background-color: #181818;
+  color: #eeeeee;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-weight: normal;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 80ch;
+}
+
+a {
+  color: #9addff;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed #787878;
+}
+
+li {
+  list-style: square;
+}
+
+code, pre {
+  background-color: #222222;
+}
+
+pre {
+  padding: 0.5em;
+  overflow-x: scroll;
+}
