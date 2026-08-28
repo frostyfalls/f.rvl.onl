@@ -12,7 +12,6 @@
     {{ with .Site.Params.themeColor }}<meta name="theme-color" content="{{ . }}" />{{ end }}
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     {{ with .Title }}<meta property="og:title" content="{{ . }}" />{{ end }}
-    {{ with $icon.Process "resize 128x png" }}<meta property="og:image" content="{{ .Permalink }}" />{{ end }}
     <link rel="canonical" href="{{ .Site.BaseURL }}" />
     {{ with $style }}<link rel="stylesheet" type="text/css" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />{{ end }}
     {{ with $icon.Process "resize 64x png" }}<link rel="icon" type="image/png" href="{{ .RelPermalink }}" />{{ end }}
