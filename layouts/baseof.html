@@ -1,0 +1,36 @@
+{{- $style := or .Site.Params.styleCss "style.css" | resources.Get | minify | fingerprint -}}
+{{- $icon := or .Site.Params.icon "icon.png" | resources.Get -}}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow" />
+    {{ with .Site.Params.themeColor }}<meta name="theme-color" content="{{ . }}" />{{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    {{ with .Title }}<meta property="og:title" content="{{ . }}" />{{ end }}
+    {{ with $icon.Process "resize 128x png" }}<meta property="og:image" content="{{ .Permalink }}" />{{ end }}
+    <link rel="canonical" href="{{ .Site.BaseURL }}" />
+    {{ with $style }}<link rel="stylesheet" type="text/css" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />{{ end }}
+    {{ with $icon.Process "resize 64x png" }}<link rel="icon" type="image/png" href="{{ .RelPermalink }}" />{{ end }}
+    <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} &mdash; {{ end }}{{ end }}{{ .Site.Title }}</title>
+  </head>
+  <body>
+    <main>
+      {{- block "main" . }}
+      {{- end }}
+    </main>
+    <hr />
+    <footer>
+      <p>
+        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        {{- range .Site.Menus.main }}
+        &mdash; <a href="{{ .URL }}">{{ .Name }}</a>
+        {{- end }}
+      </p>
+    </footer>
+  </body>
+</html>

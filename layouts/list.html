@@ -1,0 +1,8 @@
+{{- define "main" }}
+{{- range .Pages.ByLastmod }}
+<p class="page">
+  <span><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+  <span>{{ time.Format "Jan 2, 2006" .Lastmod }}</span>
+</p>
+{{- end }}
+{{- end }}

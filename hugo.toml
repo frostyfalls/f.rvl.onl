@@ -1,0 +1,17 @@
+baseURL = "https://f.rvl.onl"
+locale = "en-us"
+title = "f.rvl.onl"
+disableKinds = ["rss", "sitemap", "taxonomy"]
+disableHugoGeneratorInject = true
+uglyURLs = true
+
+[params]
+styleCss = "style.css"
+themeColor = "#9addff"
+icon = "icon.png"
+
+[menu]
+[[menu.main]]
+name = "owo.codes"
+url = "https://owo.codes/frosty"
+weight = 10
