@@ -38,7 +38,8 @@ fi
 mkdir -p "$outdir"
 
 domain=https://f.rvl.onl
-export url=$domain
+export url=$domain \
+	ishome=1
 {
 	cat base.pre.html
 	printf '<h2>Bits and tips</h2>\n'
@@ -50,7 +51,7 @@ export url=$domain
 			lastmod=$(lowdown -X lastmod "$f") \
 			url="$domain/$slug.html"
 		printf '<li>%s: <a href="%s">%s</a></li>\n' \
-			"$(date -d "$lastmod" "+%b %d %Y")" "/$slug.html" "$title"
+			"$(date -d "$lastmod" "+%b %d %Y")" "$slug.html" "$title"
 		{
 			cat base.pre.html
 			printf '<h1>%s</h1>\n' "$title"
