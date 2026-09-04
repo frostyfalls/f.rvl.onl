@@ -9,11 +9,15 @@ lastmod: 2026-08-28 04:53:34
 xbps-install nftables runit-nftables
 ```
 
-The `nftables` package provides a runit service, however this should be ignored as `runit-nftables` provides a core service to ensure the ruleset is applied early at boot.
+The `nftables` package provides a runit service, however this should be ignored
+as `runit-nftables` provides a core service to ensure the ruleset is applied
+early at boot.
 
 ## Configuration
 
-A sane general configuration can be used as a starting point in `/etc/nftables.conf`, with optional WireGuard support for routing within the same subnet:
+A sane general configuration can be used as a starting point in
+`/etc/nftables.conf`, with optional WireGuard support for routing within the
+same subnet:
 
 ```
 flush ruleset
